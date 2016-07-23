@@ -1,0 +1,22 @@
+{
+  "name": "lightspeedc-qiita-heroku1",
+  "version": "0.0.0",
+  "description": "lightspeedc-qiita-heroku1",
+  "main": "index.js",
+  "engines": {
+    "node": "6"
+  },
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "LightSpeedC/lightspeedc-qiita-heroku1"
+  },
+  "keywords": [
+    "heroku"
+  ],
+  "author": "LightSpeedC",
+  "license": "MIT"
+}
