@@ -17,6 +17,7 @@
   "keywords": [
     "heroku"
   ],
+  "private": true,
   "author": "LightSpeedC",
   "license": "MIT"
 }
