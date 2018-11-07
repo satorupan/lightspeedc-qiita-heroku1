@@ -8,7 +8,7 @@
   <style>
     body {
       margin: 0;
-      background: #000;
+    background: #FFF;
     }
 
     #videobox {
@@ -21,13 +21,29 @@
     #video {
       display: block;
     }
+    #target{
+      color:white;
+    }
+    #ui{
+      position:fixed;
+      bottom:0;
+      width:100%;
+    }
+    #jWrapper{
+      position:absolute;
+      bottom:0;
+      padding: 10px;
+      background:rgba(0,0,0,0.5);
+    }
   </style>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
 
 <body>
   <div id="ui">
-    <div id="jWrapper"></div>
+    <div id="jWrapper">
+      <div id="target"></div>
+    </div>
   </div>
   <div id="videobox">
     <video id="video" autoplay playsinline></video>
@@ -52,23 +68,6 @@
         });
       });
     }
-
-
-
-    //io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
-    io.sails.autoConnect = true;
-    io.sails.rejectUnauthorized = false;
-
-    io.socket.get('/chatMessage', function serverResponded(body, JWR) {
-      // JWR ==> "JSON WebSocket Response"
-      console.log('Sails responded with: ', body);
-      console.log('with headers: ', JWR.headers);
-      console.log('and with status code: ', JWR.statusCode);
-    });
-    // Listen for new chat messages
-    io.socket.on('chatmessage', function (body) {
-      renderChatMessages(body.data);
-    });
   </script>
 
   <script type="text/javascript">
@@ -84,14 +83,15 @@
     }
 
     function renderChatMessages(data) {
-
+      myCount = myJson.data.length;
+      if (data.action == "realtime") {
+        myCount--;
+      }
       myText = data.wholeText
-
-      myJson.data[myCount - 1] = {
+      myJson.data[myCount] = {
         'title': myType,
         'text': data.message
       }
-      myCount = myJson.data.length;
       mustacher(myJson);
     }
   </script>
@@ -99,6 +99,10 @@
   <script type="text/javascript">
     window.onload = function () {
 
+
+      //io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
+      //io.sails.autoConnect = true;
+      io.sails.rejectUnauthorized = false;
       loadUsers();
       loadMessages();
     }
