@@ -23,6 +23,7 @@ module.exports = {
 			});
 			let msg = await ChatMessage.create({
 				message: request.body.message,
+				action: 'sentence',
 				createdBy: user
 			});
 			if (!msg.id) {
