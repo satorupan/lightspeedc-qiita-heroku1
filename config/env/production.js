@@ -12,6 +12,13 @@
 
 module.exports = {
 
+  models: {
+    connection: 'productionMongo'
+  },
+  session: {
+    adapter: 'connect-mongo'
+    url: process.env.MONGODB_URI
+  }
   /***************************************************************************
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *

@@ -22,24 +22,28 @@
 module.exports.connections = {
 
   /***************************************************************************
-  *                                                                          *
-  * Local disk storage for DEVELOPMENT ONLY                                  *
-  *                                                                          *
-  * Installed by default.                                                    *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Local disk storage for DEVELOPMENT ONLY                                  *
+   *                                                                          *
+   * Installed by default.                                                    *
+   *                                                                          *
+   ***************************************************************************/
   localDiskDb: {
     adapter: 'sails-disk'
   },
+  productionMongo: {
+    adapter: 'sails-mongo',
+    url: process.env.MONGODB_URI
+  },
 
   /***************************************************************************
-  *                                                                          *
-  * MySQL is the world's most popular relational database.                   *
-  * http://en.wikipedia.org/wiki/MySQL                                       *
-  *                                                                          *
-  * Run: npm install sails-mysql@for-sails-0.12 --save                       *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * MySQL is the world's most popular relational database.                   *
+   * http://en.wikipedia.org/wiki/MySQL                                       *
+   *                                                                          *
+   * Run: npm install sails-mysql@for-sails-0.12 --save                       *
+   *                                                                          *
+   ***************************************************************************/
   // someMysqlServer: {
   //   adapter: 'sails-mysql',
   //   host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
@@ -49,13 +53,13 @@ module.exports.connections = {
   // },
 
   /***************************************************************************
-  *                                                                          *
-  * MongoDB is the leading NoSQL database.                                   *
-  * http://en.wikipedia.org/wiki/MongoDB                                     *
-  *                                                                          *
-  * Run: npm install sails-mongo@for-sails-0.12 --save                       *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * MongoDB is the leading NoSQL database.                                   *
+   * http://en.wikipedia.org/wiki/MongoDB                                     *
+   *                                                                          *
+   * Run: npm install sails-mongo@for-sails-0.12 --save                       *
+   *                                                                          *
+   ***************************************************************************/
   // someMongodbServer: {
   //   adapter: 'sails-mongo',
   //   host: 'localhost',
@@ -66,14 +70,14 @@ module.exports.connections = {
   // },
 
   /***************************************************************************
-  *                                                                          *
-  * PostgreSQL is another officially supported relational database.          *
-  * http://en.wikipedia.org/wiki/PostgreSQL                                  *
-  *                                                                          *
-  * Run: npm install sails-postgresql@for-sails-0.12 --save                  *
-  *                                                                          *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * PostgreSQL is another officially supported relational database.          *
+   * http://en.wikipedia.org/wiki/PostgreSQL                                  *
+   *                                                                          *
+   * Run: npm install sails-postgresql@for-sails-0.12 --save                  *
+   *                                                                          *
+   *                                                                          *
+   ***************************************************************************/
   // somePostgresqlServer: {
   //   adapter: 'sails-postgresql',
   //   host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
@@ -84,9 +88,9 @@ module.exports.connections = {
 
 
   /***************************************************************************
-  *                                                                          *
-  * More adapters: https://github.com/balderdashy/sails                      *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * More adapters: https://github.com/balderdashy/sails                      *
+   *                                                                          *
+   ***************************************************************************/
 
 };
