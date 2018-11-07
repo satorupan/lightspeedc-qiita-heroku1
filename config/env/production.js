@@ -16,7 +16,7 @@ module.exports = {
     connection: 'productionMongo'
   },
   session: {
-    adapter: 'connect-mongo'
+    adapter: 'connect-mongo',
     url: process.env.MONGODB_URI
   }
   /***************************************************************************
