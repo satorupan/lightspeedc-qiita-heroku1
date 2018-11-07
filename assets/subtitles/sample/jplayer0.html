@@ -53,22 +53,25 @@
       });
     }
 
+    function initSocket() {
 
 
-    //io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
-    io.sails.autoConnect = true;
-    io.sails.rejectUnauthorized = false;
+      //io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
+      io.sails.autoConnect = true;
+      io.sails.rejectUnauthorized = false;
 
-    io.socket.get('/chatMessage', function serverResponded(body, JWR) {
-      // JWR ==> "JSON WebSocket Response"
-      console.log('Sails responded with: ', body);
-      console.log('with headers: ', JWR.headers);
-      console.log('and with status code: ', JWR.statusCode);
-    });
-    // Listen for new chat messages
-    io.socket.on('chatmessage', function (body) {
-      renderChatMessages(body.data);
-    });
+      io.socket.get('/chatMessage', function serverResponded(body, JWR) {
+        // JWR ==> "JSON WebSocket Response"
+        console.log('Sails responded with: ', body);
+        console.log('with headers: ', JWR.headers);
+        console.log('and with status code: ', JWR.statusCode);
+      });
+      // Listen for new chat messages
+      io.socket.on('chatmessage', function (body) {
+        renderChatMessages(body.data);
+      });
+
+    }
   </script>
 
   <script type="text/javascript">
@@ -90,7 +93,7 @@
 
   <script type="text/javascript">
     window.onload = function () {
-
+      initSocket();
       loadUsers();
       loadMessages();
     }
