@@ -59,7 +59,7 @@ function mustacher(tJson) {
 
 /*
 CAMERA
-
+*/
 var medias = {
     audio: false,
     video: {
@@ -81,4 +81,3 @@ function errorCallback(err) {
   //alert(err);
   console.log(err);
 }
-*/
