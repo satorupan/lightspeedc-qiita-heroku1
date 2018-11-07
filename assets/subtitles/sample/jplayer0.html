@@ -85,6 +85,14 @@
 
     function renderChatMessages(data) {
 
+      myText = data.wholeText
+
+      myJson.data[myCount - 1] = {
+        'title': myType,
+        'text': data.message
+      }
+      myCount = myJson.data.length;
+      mustacher(myJson);
     }
   </script>
 

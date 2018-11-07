@@ -49,7 +49,7 @@ function postMessage(myChat) {
 
 function mustacher(tJson) {
 
-  var template = "  {{#data}}<dt>{{title}}</dt><dd>{{ text }}!</dd> {{/data}}<dd id='lastMessage'></dd>";
+  var template = "  {{#data}}<dt>{{title}}</dt><dd>{{ text }}</dd> {{/data}}<dd id='lastMessage'></dd>";
   Mustache.parse(template); // optional, speeds up future uses
   var rendered = Mustache.render(template, tJson);
   document.querySelector('#target').innerHTML = rendered;
