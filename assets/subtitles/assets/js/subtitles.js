@@ -74,7 +74,7 @@ var medias = {
 navigator.getUserMedia(medias, successCallback, errorCallback);
 
 function successCallback(stream) {
-  //video.srcObject = stream;
+  video.srcObject = stream;
 }
 
 function errorCallback(err) {
