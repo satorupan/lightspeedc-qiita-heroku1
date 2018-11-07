@@ -55,7 +55,12 @@ module.exports.routes = {
   },
   '/postMessage': {
     controller: 'ChatMessageController',
-    action: 'postMessage'
+    action: 'postMessage',
+    cors: {
+      allRoutes: true,
+      allowOrigins: '*',
+      allowCredentials: false
+    }
   }
 
   /***************************************************************************
