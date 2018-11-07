@@ -24,7 +24,7 @@ var streamer = function (cat, text) {
         'text': myText
       }
       myType = text.wholeText;
-      postMessage(myType)
+      postMessage(myText)
       console.log("title:" + text.wholeText);
       break;
     case "DD":
@@ -34,6 +34,8 @@ var streamer = function (cat, text) {
         'title': myType,
         'text': myText
       }
+
+      realMessage2(myText)
       console.log(cat + ":" + text.wholeText);
       break;
   }
@@ -49,7 +51,7 @@ function postMessage(myChat) {
 
 function mustacher(tJson) {
 
-  var template = "  {{#data}}<dt>{{title}}</dt><dd>{{ text }}</dd> {{/data}}<dd id='lastMessage'></dd>";
+  var template = "  {{#data}}<dt>{{title}}</dt><dd>{{ text }}!</dd> {{/data}}<dd id='lastMessage'></dd>";
   Mustache.parse(template); // optional, speeds up future uses
   var rendered = Mustache.render(template, tJson);
   document.querySelector('#target').innerHTML = rendered;
@@ -57,16 +59,29 @@ function mustacher(tJson) {
   scroll.animateScroll(anchor);
 }
 
+
+var observer = new MutationObserver(function (MutationRecords, MutationObserver) {
+  streamer(MutationRecords[0].target.parentNode.tagName, MutationRecords[0].target)
+});
+observer.observe(document.querySelector('.tab-panels--tab-content div'), {
+  characterData: true,
+  childList: true,
+  subtree: true
+});
+
+
 /*
 CAMERA
 */
-var medias = {
+
+
+const medias = {
     audio: false,
     video: {
       //facingMode: "user"
       facingMode: {
         exact: 'environment'
-      }
+      },
     }
   },
   video = document.getElementById("video");
@@ -75,9 +90,8 @@ navigator.getUserMedia(medias, successCallback, errorCallback);
 
 function successCallback(stream) {
   video.srcObject = stream;
-}
+};
 
 function errorCallback(err) {
   //alert(err);
-  console.log(err);
-}
+};
