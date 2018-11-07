@@ -83,8 +83,10 @@
     }
 
     function renderChatMessages(data) {
-
       myCount = myJson.data.length;
+      if (data.action == "realtime") {
+        myCount--;
+      }
       myText = data.wholeText
       myJson.data[myCount] = {
         'title': myType,
