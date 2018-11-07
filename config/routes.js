@@ -55,21 +55,11 @@ module.exports.routes = {
   },
   '/postMessage': {
     controller: 'ChatMessageController',
-    action: 'postMessage',
-    cors: {
-      allRoutes: true,
-      allowOrigins: '*',
-      allowCredentials: false
-    }
+    action: 'postMessage'
   },
   '/realMessage': {
     controller: 'ChatMessageController',
-    action: 'realMessage',
-    cors: {
-      allRoutes: true,
-      allowOrigins: '*',
-      allowCredentials: false
-    }
+    action: 'realMessage'
   }
 
   /***************************************************************************
