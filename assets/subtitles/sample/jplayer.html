@@ -37,13 +37,12 @@
   <script type="text/javascript" src="../assets/js/smooth-scroll.js"></script>
   <script type="text/javascript" src="../assets/js/mustache.js"></script>
   <script type="text/javascript" src="../assets/js/sails.io.js"></script>
+
   <script type="text/javascript">
     io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
     io.sails.autoConnect = true;
     io.sails.rejectUnauthorized = false;
-  </script>
-  <!-- Example usage -->
-  <script type="text/javascript">
+
     io.socket.get('/chatMessage', function serverResponded(body, JWR) {
       // JWR ==> "JSON WebSocket Response"
       console.log('Sails responded with: ', body);
