@@ -7,6 +7,7 @@
     "heroku"
   ],
   "dependencies": {
+    "connect-mongo": "^2.0.1",
     "ejs": "2.5.5",
     "gravatar": "^1.6.0",
     "grunt": "^1.0.3",
