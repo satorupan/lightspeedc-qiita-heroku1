@@ -39,6 +39,22 @@
   <script type="text/javascript" src="../assets/js/sails.io.js"></script>
 
   <script type="text/javascript">
+    function loadUsers() {
+      // Load existing users
+      io.socket.get('/user', function (users, response) {
+        renderChatUsers(users);
+      });
+
+      // Listen for new & updated users
+      io.socket.on('user', function (body) {
+        io.socket.get('/user', function (users, response) {
+          //renderChatUsers(users);
+        });
+      });
+    }
+
+
+
     //io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
     io.sails.autoConnect = true;
     io.sails.rejectUnauthorized = false;
@@ -74,6 +90,8 @@
 
   <script type="text/javascript">
     window.onload = function () {
+
+      loadUsers();
       loadMessages();
     }
   </script>
