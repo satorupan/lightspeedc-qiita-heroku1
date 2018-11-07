@@ -6,8 +6,10 @@
   "keywords": [
     "heroku"
   ],
+  "engines": {
+    "node": "10.3.0"
+  },
   "dependencies": {
-    "node": "10.3.0",
     "ejs": "2.5.5",
     "gravatar": "^1.6.0",
     "grunt": "^1.0.3",
