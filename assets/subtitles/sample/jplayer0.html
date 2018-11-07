@@ -1,0 +1,83 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Canvas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+    }
+
+    #videobox {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      transform-origin: left top;
+    }
+
+    #video {
+      display: block;
+    }
+  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body>
+  <div id="ui">
+    <div id="jWrapper"></div>
+  </div>
+  <div id="videobox">
+    <video id="video" autoplay playsinline></video>
+  </div>
+
+  <!--SCRIPTS-->
+  <script type="text/javascript" src="../assets/js/smooth-scroll.js"></script>
+  <script type="text/javascript" src="../assets/js/mustache.js"></script>
+  <script type="text/javascript" src="../assets/js/sails.io.js"></script>
+
+  <script type="text/javascript">
+    //io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
+    io.sails.autoConnect = true;
+    io.sails.rejectUnauthorized = false;
+
+    io.socket.get('/chatMessage', function serverResponded(body, JWR) {
+      // JWR ==> "JSON WebSocket Response"
+      console.log('Sails responded with: ', body);
+      console.log('with headers: ', JWR.headers);
+      console.log('and with status code: ', JWR.statusCode);
+    });
+    // Listen for new chat messages
+    io.socket.on('chatmessage', function (body) {
+      renderChatMessages(body.data);
+    });
+  </script>
+
+  <script type="text/javascript">
+    function loadMessages() {
+      // Load existing chat messages
+      io.socket.get('/chatMessage', function (messages, response) {
+        renderChatMessages(messages);
+      });
+      // Listen for new chat messages
+      io.socket.on('chatmessage', function (body) {
+        renderChatMessages(body.data);
+      });
+    }
+
+    function renderChatMessages(data) {
+
+    }
+  </script>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      loadMessages();
+    }
+  </script>
+  <script type="text/javascript" src="../assets/js/subtitles.js"></script>
+</body>
+
+</html>
