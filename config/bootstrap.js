@@ -13,6 +13,7 @@ module.exports.bootstrap = async function (cb) {
 
   //sails.config.ssl = true;
   //sails.config.port = 8080;
+  sails.config.grunt._hookTimeout = 600000;
   sails.config.appName = "Sails Chat App";
   // Generate Chat Messages
   try {
