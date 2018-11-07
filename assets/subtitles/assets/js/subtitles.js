@@ -72,7 +72,7 @@ const medias = {
   },
   video = document.getElementById("video");
 
-navigator.getUserMedia(medias, successCallback, errorCallback);
+//navigator.getUserMedia(medias, successCallback, errorCallback);
 
 function successCallback(stream) {
   video.srcObject = stream;

@@ -1,35 +1,36 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Firebase Hosting</title>
-  <style media="screen">
-  </style>
+  <meta charset="UTF-8" />
+  <title>Canvas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
 
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+    }
+
+    #videobox {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform-origin: left top;
+    }
+
+    #video {
+      display: block;
+    }
+  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
 
 <body>
-
-  <div id="wrapper">
-    <div id="subtitleWrapper"><video id="video"></video>
-      <div id="debug"><button id="goFS">Go fullscreen2</button><button id="connect">接続</button><button id="disconnect">切断</button><input
-          id="message" value="hello" /><button id="send">送信</button></div>
-      <div id="cameraView">
-        <div id="chatView">
-          <dl id="target"></dl>
-        </div>
-      </div>
-    </div>
+  <div id="ui">
+    <div id="jWrapper"></div>
   </div>
-  <!-- Chat Messages -->
-  <div class="ui basic segment" style="height: 70vh;
-  position: fixed;
-  bottom: 200px;
-  left: 20px;">
-    <div id="chat-content" class="ui feed"> </div>
+  <div id="videobox">
+    <video id="video" autoplay playsinline></video>
   </div>
 
   <!--SCRIPTS-->
@@ -37,7 +38,7 @@
   <script type="text/javascript" src="../assets/js/mustache.js"></script>
   <script type="text/javascript" src="../assets/js/sails.io.js"></script>
   <script type="text/javascript">
-    io.sails.url = 'http://localhost:1337';
+    io.sails.url = 'https://agile-reaches-77831.herokuapp.com';
     io.sails.autoConnect = true;
     io.sails.rejectUnauthorized = false;
   </script>
