@@ -59,7 +59,7 @@ function mustacher(tJson) {
   scroll.animateScroll(anchor);
 }
 
-
+/*
 var observer = new MutationObserver(function (MutationRecords, MutationObserver) {
   streamer(MutationRecords[0].target.parentNode.tagName, MutationRecords[0].target)
 });
@@ -68,7 +68,7 @@ observer.observe(document.querySelector('.tab-panels--tab-content div'), {
   childList: true,
   subtree: true
 });
-
+*/
 
 /*
 CAMERA
